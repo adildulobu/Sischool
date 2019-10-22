@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Professor</title>
+<link rel="stylesheet" th:href="@{/css/teste.css}"/>
+</head>
+<body>
+<div align="center">
+    <h1>Lista de Professores</h1>
+    <a href="professor/novo-professor" class="btn-new">Crie Novo Professor</a>
+    <br/><br/></br>
+    <table>
+        <thead>
+            <tr>
+                <th class="brx-tb">Professor ID</th>
+                <th>Nome</th>
+                <th>Disciplina</th>
+                <th>Valor/Hora</th>
+                <th>Sobre</th>
+                <th class="bry-tb">Acções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="professor : ${listprof}">
+                <td th:text="${professor.id}">Professor ID</td>
+                <td th:text="${professor.nome}">Nome</td>
+                <td th:text="${professor.disciplina}">Disciplina</td>
+                <td th:text="${professor.valor_hora}">Valor/Hora</td>
+                <td th:text="${professor.sobre}">Sobre</td>
+                <td>
+                    <a th:href="@{'professor/editar-professor/' + ${professor.id}}" class="btn-edit">Editar</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'professor/apagar-professor/' + ${professor.id}}" class="btn-delete">Apagar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div align="center">
+<a href="/" class="btn-new">Voltar</a>
+</div>   
+   
+</body>
+</html>

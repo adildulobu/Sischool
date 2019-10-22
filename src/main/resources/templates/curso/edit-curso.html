@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Editar Curso</title>
+<link rel="stylesheet" th:href="@{/css/form.css}"/>
+</head>
+<body>
+    <div align="center">
+        <h1>Editar Curso</h1>
+        <br />
+        <form action="#" th:action="@{/salvar-curso}" th:object="${curso}"
+            method="post">
+             
+                    <label>Curso ID</label><br>
+                    <input type="text" th:field="*{id}" readonly="readonly" /><br>
+                             
+                    <label>Nome</label><br>
+                    <input type="text" th:field="*{nome}" /><br>
+                    
+                    <label>Duração:</label><br>
+                    <input type="text" th:field="*{duracao}" /><br>
+                
+                    <label>Preço:</label><br>
+                    <input type="text" th:field="*{preco}" /><br>
+                
+                    <label>Requisitos:</label><br>
+                    <input type="text" th:field="*{Requisitos}" /><br>
+                
+                    <input type="submit" value="Actualizar">
+            
+        </form>
+    </div>
+</body>
+</html>

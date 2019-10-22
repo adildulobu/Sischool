@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Novo Professor</title>
+<link rel="stylesheet" th:href="@{/css/form.css}"/>
+</head>
+<body>
+    <div align="center">
+        <h1>Crie Novo Professor</h1>
+        <br />
+        <form action="#" th:action="@{/salvar-professor}" th:object="${professor}"
+            method="post">
+ 
+            
+                    <label>Nome</label><br>
+                    <input type="text" th:field="*{nome}" /><br>
+                
+                    <label>Disciplina</label><br>
+                    <input type="text" th:field="*{disciplina}" /><br>
+            
+                    <label>Valor/Hora</label><br>
+                    <input type="text" th:field="*{valor_hora}" /><br>
+                
+                    <label>Sobre</label><br>
+                    <input type="text" th:field="*{sobre}" /><br>
+                                            
+                
+                    <input type="submit" value="Salvar"/>
+                
+            
+        </form>
+    </div>
+</body>
+</html>

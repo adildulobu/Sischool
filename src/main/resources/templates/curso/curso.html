@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Curso</title>
+<link rel="stylesheet" th:href="@{/css/teste.css}"/>
+</head>
+<body>
+<div align="center">
+    <h1>Lista de Cursos</h1>
+    <a href="curso/novo-curso" class="btn-new">Crie Novo Curso</a>
+    <br/><br/></br>
+    <table>
+        <thead>
+            <tr>
+                <th class="brx-tb">Curso ID</th>
+                <th>Nome</th>
+                <th>Duração</th>
+                <th>Preço</th>
+                <th>Requisitos</th>
+                <th class="bry-tb">Acções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="curso : ${listcurso}">
+                <td th:text="${curso.id}">Curso ID</td>
+                <td th:text="${curso.nome}">Nome</td>
+                <td th:text="${curso.duracao}">Duração</td>
+                <td th:text="${curso.preco}">Preço</td>
+                <td th:text="${curso.requisitos}">Requisitos</td>
+                <td>
+                    <a th:href="@{'curso/editar-curso/' + ${curso.id}}" class="btn-edit">Editar</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'curso/apagar-curso/' + ${curso.id}}" class="btn-delete">Apagar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> 
+<div align="center">
+<a href="/" class="btn-new">Voltar</a>
+</div>   
+  
+</body>
+</html>

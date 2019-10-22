@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Estudante</title>
+<link rel="stylesheet" th:href="@{/css/teste.css}"/>
+</head>
+<body>
+<div align="center">
+    <h1>Lista de Estudantes</h1>
+    <a href="estudante/novo-estudante" class="btn-new">Crie Novo Estudante</a>
+    <br/><br/></br>
+    <table>
+        <thead>
+            <tr>
+                <th class="brx-tb">Estudante ID</th>
+                <th>Nome</th>
+                <th>Data De Nascimento</th>
+                <th>Curso</th>
+                <th>Localização</th>
+                <th class="bry-tb">Acções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="estudante : ${listestudante}">
+                <td th:text="${estudante.id}">Estudante ID</td>
+                <td th:text="${estudante.nome}">Nome</td>
+                <td th:text="${estudante.data}">Data De Nascimento</td>
+               <td th:text="${estudante.curso.nome}">Curso</td>
+                <td th:text="${estudante.localizacao}">Localização</td>
+                <td>
+                    <a th:href="@{'estudante/editar-estudante/'+ ${estudante.id}}" class="btn-edit">Editar</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'estudante/apagar-estudante/'+ ${estudante.id}}" class="btn-delete">Apagar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div align="center">
+<a href="/" class="btn-new">Voltar</a>
+</div>   
+</body>
+</html>

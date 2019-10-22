@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Novo Estudante</title>
+<link rel="stylesheet" th:href="@{/css/form.css}"/>
+</head>
+<body>
+    <div align="center">
+        <h1>Crie Novo Estudante</h1>
+        <br />
+        <form action="#" th:action="@{/salvar-estudante}" th:object="${estudante}"
+            method="post">
+ 
+            
+                
+                    <label>Nome</label><br>
+                    <input type="text" th:field="*{nome}" /><br>
+                
+                
+                    <label>Data de Nascimento</label><br>
+                    <input type="text" th:field="*{data}" /><br>
+                    
+                
+                    <label>Curso</label><br>
+                   <select name="curso.id">
+                    		<option th:each="curso: ${listcurso}" th:value="${curso.id}" th:text="${curso.nome}">
+                            </option>
+                    </select><br>
+                
+                
+                    <label>Localização</label><br>
+                    <input type="text" th:field="*{localizacao}" /><br>
+                                            
+                
+                    <input type="submit" value="Salvar"/> 
+                
+            
+        </form>
+    </div>
+</body>
+</html>
